@@ -79,6 +79,41 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
+      -- Diagnostic configuration for inline errors and floating windows
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = "● ",
+          spacing = 2,
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "✘ ",
+            [vim.diagnostic.severity.WARN] = "▲ ",
+            [vim.diagnostic.severity.HINT] = "⚑ ",
+            [vim.diagnostic.severity.INFO] = "» ",
+          },
+        },
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          focusable = false,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
+
+      vim.o.updatetime = 300
+      vim.api.nvim_create_autocmd("CursorHold", {
+        group = vim.api.nvim_create_augroup("UserLspDiagnostics", {}),
+        callback = function()
+          vim.diagnostic.open_float(nil, { focusable = false, close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" } })
+        end,
+      })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
