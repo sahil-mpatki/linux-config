@@ -18,15 +18,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("catppuccin-mocha")
+      vim.o.background = "dark"
+      vim.cmd.colorscheme("gruvbox")
     end,
   },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
 
   {
     "nvim-treesitter/nvim-treesitter",
