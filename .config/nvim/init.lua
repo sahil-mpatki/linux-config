@@ -54,7 +54,7 @@ require("lazy").setup({
     },
   },
   { "lewis6991/gitsigns.nvim", opts = {} },
-  { "nvim-lualine/lualine.nvim", opts = { options = { theme = "catppuccin" } } },
+  { "nvim-lualine/lualine.nvim", opts = { options = { theme = "auto" } } },
   { "folke/which-key.nvim", opts = {} },
   {
     "stevearc/conform.nvim",
