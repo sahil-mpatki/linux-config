@@ -35,11 +35,15 @@ require("lazy").setup({
     opts = {},
   },
   {
-    "stevearc/oil.nvim",
+    "folke/snacks.nvim",
+    priority = 1000,
     lazy = false,
-    opts = {},
+    opts = {
+      explorer = { enabled = true, replace_netrw = true },
+      picker = { enabled = true },
+    },
     keys = {
-      { "<leader>e", function() require("oil").toggle_float() end, desc = "Explorer" },
+      { "<leader>e", function() Snacks.picker.explorer() end, desc = "Explorer" },
     },
   },
   {
