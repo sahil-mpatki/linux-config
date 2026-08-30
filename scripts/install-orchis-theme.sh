@@ -56,26 +56,21 @@ export PATH="$HOME/.local/bin:$PATH"
 TEMP_DIR=$(mktemp -d)
 trap 'rm -rf "$TEMP_DIR"' EXIT
 
-echo "==> Downloading and building Gruvbox GTK theme..."
-git clone --depth 1 https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme.git "$TEMP_DIR/gruvbox-gtk"
-"$TEMP_DIR/gruvbox-gtk/themes/install.sh" -d "$HOME/.themes" -t default -c dark
-"$TEMP_DIR/gruvbox-gtk/themes/install.sh" -d "$HOME/.local/share/themes" -t default -c dark
+echo "==> Downloading and building Orchis GTK theme..."
+git clone --depth 1 https://github.com/vinceliuice/Orchis-theme.git "$TEMP_DIR/orchis-theme"
+"$TEMP_DIR/orchis-theme/install.sh" -d "$HOME/.themes" -c dark -t default --round 4px
+"$TEMP_DIR/orchis-theme/install.sh" -d "$HOME/.local/share/themes" -c dark -t default --round 4px
 
-echo "==> Downloading and installing Gruvbox Plus icon pack..."
-LATEST_ICON_ZIP_URL=$(curl -s https://api.github.com/repos/SylEleuth/gruvbox-plus-icon-pack/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4)
-if [ -n "$LATEST_ICON_ZIP_URL" ]; then
-  curl -L -o "$TEMP_DIR/gruvbox-plus.zip" "$LATEST_ICON_ZIP_URL"
-  unzip -qo "$TEMP_DIR/gruvbox-plus.zip" -d "$HOME/.icons/"
-  if [ -d "$HOME/.icons/Gruvbox-Plus-Dark" ]; then
-    cp -r "$HOME/.icons/Gruvbox-Plus-Dark" "$HOME/.local/share/icons/"
-  fi
-fi
+echo "==> Downloading and installing Tela Circle icon theme..."
+git clone --depth 1 https://github.com/vinceliuice/Tela-circle-icon-theme.git "$TEMP_DIR/tela-circle"
+"$TEMP_DIR/tela-circle/install.sh" -d "$HOME/.icons" standard
+"$TEMP_DIR/tela-circle/install.sh" -d "$HOME/.local/share/icons" standard
 
 echo "==> Writing GTK 3 & 4 settings..."
 cat << 'GTK3_EOF' > "$HOME/.config/gtk-3.0/settings.ini"
 [Settings]
-gtk-theme-name=Gruvbox-Dark
-gtk-icon-theme-name=Gruvbox-Plus-Dark
+gtk-theme-name=Orchis-Dark
+gtk-icon-theme-name=Tela-circle-dark
 gtk-font-name=Noto Sans 10.5
 gtk-cursor-theme-name=
 gtk-cursor-theme-size=0
@@ -94,17 +89,17 @@ GTK3_EOF
 
 cat << 'GTK4_EOF' > "$HOME/.config/gtk-4.0/settings.ini"
 [Settings]
-gtk-theme-name=Gruvbox-Dark
-gtk-icon-theme-name=Gruvbox-Plus-Dark
+gtk-theme-name=Orchis-Dark
+gtk-icon-theme-name=Tela-circle-dark
 gtk-font-name=Noto Sans 10.5
 gtk-application-prefer-dark-theme=1
 GTK4_EOF
 
 if command -v xfconf-query >/dev/null 2>&1; then
   echo "==> Applying XFCE settings via xfconf-query..."
-  xfconf-query -c xsettings -p /Net/ThemeName -s "Gruvbox-Dark" || true
-  xfconf-query -c xsettings -p /Net/IconThemeName -s "Gruvbox-Plus-Dark" || true
-  xfconf-query -c xfwm4 -p /general/theme -s "Gruvbox-Dark" || true
+  xfconf-query -c xsettings -p /Net/ThemeName -s "Orchis-Dark" || true
+  xfconf-query -c xsettings -p /Net/IconThemeName -s "Tela-circle-dark" || true
+  xfconf-query -c xfwm4 -p /general/theme -s "Orchis-Dark" || true
 fi
 
-echo "==> Gruvbox theme successfully installed and applied!"
+echo "==> Orchis theme successfully installed and applied!"
