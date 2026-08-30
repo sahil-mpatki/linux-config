@@ -4,6 +4,7 @@
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
     <value type="int" value="1"/>
+    <value type="int" value="2"/>
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=6;x=0;y=0"/>
       <property name="length" type="double" value="100"/>
@@ -15,8 +16,12 @@
         <value type="int" value="1"/>
         <value type="int" value="16"/>
         <value type="int" value="6"/>
+        <value type="int" value="30"/>
         <value type="int" value="7"/>
+        <value type="int" value="31"/>
         <value type="int" value="5"/>
+        <value type="int" value="32"/>
+        <value type="int" value="9"/>
       </property>
       <property name="background-style" type="uint" value="1"/>
       <property name="mode" type="uint" value="0"/>
@@ -33,6 +38,32 @@
       <property name="icon-size" type="uint" value="16"/>
     </property>
     <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-2" type="empty">
+      <property name="position" type="string" value="p=8;x=1280;y=1440"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="56"/>
+      <property name="length" type="double" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.157"/>
+        <value type="double" value="0.157"/>
+        <value type="double" value="0.157"/>
+        <value type="double" value="0.88"/>
+      </property>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="enable-struts" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="44"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="40"/>
+        <value type="int" value="41"/>
+        <value type="int" value="42"/>
+        <value type="int" value="43"/>
+        <value type="int" value="44"/>
+      </property>
+    </property>
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-15" type="string" value="separator">
@@ -57,8 +88,8 @@
       <property name="show-frame" type="bool" value="false"/>
       <property name="names-hidden" type="array">
       </property>
-      <property name="size-max" type="uint" value="24"/>
-      <property name="icon-size" type="int" value="0"/>
+      <property name="size-max" type="uint" value="20"/>
+      <property name="icon-size" type="int" value="16"/>
       <property name="names-ordered" type="array">
         <value type="string" value="apt-notifier.py"/>
         <value type="string" value="yad"/>
@@ -67,6 +98,8 @@
         <value type="string" value="clipit"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “fortune_5ghz” active: fortune_5ghz (72%)"/>
+        <value type="string" value="wi-fi network connection “fortune_5ghz” active: fortune_5ghz (63%)"/>
         <value type="string" value="wi-fi network connection “fortune_5ghz” active: fortune_5ghz (66%)"/>
         <value type="string" value="wi-fi network connection “fortune_5ghz” active: fortune_5ghz (67%)"/>
         <value type="string" value="wi-fi network connection “fortune_5ghz” active: fortune_5ghz (68%)"/>
@@ -149,6 +182,32 @@
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
+    <property name="plugin-30" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-31" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-32" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-40" type="string" value="launcher">
+      <property name="items" type="string" value="firefox.desktop"/>
+    </property>
+    <property name="plugin-41" type="string" value="launcher">
+      <property name="items" type="string" value="thunar.desktop"/>
+    </property>
+    <property name="plugin-42" type="string" value="launcher">
+      <property name="items" type="string" value="xfce4-terminal.desktop"/>
+    </property>
+    <property name="plugin-43" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-44" type="string" value="docklike"/>
   </property>
   <property name="clipman" type="empty">
     <property name="tweaks" type="empty">
